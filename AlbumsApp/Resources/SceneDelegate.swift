@@ -18,9 +18,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let routerInstance = AlbumRouter.startExecution()
-        let initalViewController = routerInstance.entry
+        let initialViewController = routerInstance.entry!
+        let navVC = UINavigationController(rootViewController: initialViewController)
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = initalViewController
+        window.rootViewController = navVC
         self.window = window
         window.makeKeyAndVisible()
     }

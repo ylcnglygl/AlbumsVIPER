@@ -6,17 +6,24 @@
 //
 
 import Foundation
+import UIKit
 
 protocol AnyPresenter {
-    var router: AnyRouter? {get set}
+    var router: AlbumRouter? {get set}
     var interactor: AnyInteractor? {get set}
     var view: AnyView? {get set}
     
     func interactorDidDownloadAlbums(result: Result<[AlbumResult], Error>)
+    func openScreen(album: AlbumResult)
 }
 
 class AlbumPresenter: AnyPresenter {
-    var router: AnyRouter?
+    func openScreen(album: AlbumResult) {
+        
+    }
+    
+   
+    var router: AlbumRouter?
     
     var interactor: AnyInteractor? {
         didSet {
@@ -34,6 +41,8 @@ class AlbumPresenter: AnyPresenter {
             view?.update(with: "Error")
         }
     }
+   
+    
     
     
 }

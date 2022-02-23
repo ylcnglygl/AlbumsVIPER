@@ -8,6 +8,10 @@
 import Foundation
 import UIKit
 
+protocol PresenterWillOpenDetailProtocol {
+    func openScreen(screenName: String, onViewController: UIViewController)
+}
+
 protocol AnyView {
     var presenter: AnyPresenter? {get set}
     func update(with albums: [AlbumResult])
@@ -16,7 +20,6 @@ protocol AnyView {
 
 class AlbumsViewController: UIViewController, AnyView, UITableViewDelegate, UITableViewDataSource {
    
-    
     var presenter: AnyPresenter?
     var albums: [AlbumResult] = []
     private let tableView: UITableView = {
@@ -26,15 +29,7 @@ class AlbumsViewController: UIViewController, AnyView, UITableViewDelegate, UITa
         return table
     }()
     
-    private let messageLabel: UILabel = {
-       let label = UILabel()
-        label.isHidden = false
-        label.text = "Downloading..."
-        label.font = UIFont.systemFont(ofSize: 20)
-        label.textColor = .black
-        label.textAlignment = .center
-        return label
-    }()
+    private let messageLabel: CustomUILabel = CustomUILabel()
     
     func update(with albums: [AlbumResult]) {
         DispatchQueue.main.async {
@@ -56,11 +51,18 @@ class AlbumsViewController: UIViewController, AnyView, UITableViewDelegate, UITa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .yellow
+        view.backgroundColor = .white
         view.addSubview(tableView)
         view.addSubview(messageLabel)
         tableView.delegate = self
         tableView.dataSource = self
+        title = "Albums"
+        messageLabel.text = "Downloading..."
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(goSearch))
+    }
+    
+    @objc func goSearch(){
+        self.navigationController?.pushViewController(SearchViewController(), animated: true)
     }
     
     override func viewDidLayoutSubviews() {
@@ -81,6 +83,13 @@ class AlbumsViewController: UIViewController, AnyView, UITableViewDelegate, UITa
         cell.contentConfiguration = content
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        self.navigationController?.pushViewController(self.presenter?.router?.goDetail(for: albums[indexPath.row]) ?? UIViewController(), animated: true)
+        }
+    
+    
     
     
 }

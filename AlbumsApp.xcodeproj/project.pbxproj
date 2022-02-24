@@ -9,11 +9,6 @@
 /* Begin PBXBuildFile section */
 		4150E53F27C6E45F00387D8D /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4150E53E27C6E45F00387D8D /* UIViewExtension.swift */; };
 		4150E54327C6E4AE00387D8D /* CustomUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4150E54227C6E4AE00387D8D /* CustomUILabel.swift */; };
-		4150E54627C6F20200387D8D /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4150E54527C6F20200387D8D /* SearchView.swift */; };
-		4150E54827C6F20B00387D8D /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4150E54727C6F20B00387D8D /* SearchInteractor.swift */; };
-		4150E54A27C6F21300387D8D /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4150E54927C6F21300387D8D /* SearchPresenter.swift */; };
-		4150E54C27C6F21E00387D8D /* SearchEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4150E54B27C6F21E00387D8D /* SearchEntity.swift */; };
-		4150E54E27C6F22B00387D8D /* SearchRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4150E54D27C6F22B00387D8D /* SearchRoute.swift */; };
 		415EF1E827C5183600F54DC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415EF1E727C5183600F54DC5 /* AppDelegate.swift */; };
 		415EF1EA27C5183600F54DC5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415EF1E927C5183600F54DC5 /* SceneDelegate.swift */; };
 		415EF1F127C5183700F54DC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 415EF1F027C5183700F54DC5 /* Assets.xcassets */; };
@@ -30,11 +25,6 @@
 /* Begin PBXFileReference section */
 		4150E53E27C6E45F00387D8D /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		4150E54227C6E4AE00387D8D /* CustomUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUILabel.swift; sourceTree = "<group>"; };
-		4150E54527C6F20200387D8D /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
-		4150E54727C6F20B00387D8D /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
-		4150E54927C6F21300387D8D /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
-		4150E54B27C6F21E00387D8D /* SearchEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEntity.swift; sourceTree = "<group>"; };
-		4150E54D27C6F22B00387D8D /* SearchRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRoute.swift; sourceTree = "<group>"; };
 		415EF1E427C5183600F54DC5 /* AlbumsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlbumsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		415EF1E727C5183600F54DC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		415EF1E927C5183600F54DC5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,18 +59,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		4150E54427C6F1F600387D8D /* Search */ = {
-			isa = PBXGroup;
-			children = (
-				4150E54527C6F20200387D8D /* SearchView.swift */,
-				4150E54727C6F20B00387D8D /* SearchInteractor.swift */,
-				4150E54927C6F21300387D8D /* SearchPresenter.swift */,
-				4150E54B27C6F21E00387D8D /* SearchEntity.swift */,
-				4150E54D27C6F22B00387D8D /* SearchRoute.swift */,
-			);
-			path = Search;
-			sourceTree = "<group>";
-		};
 		415EF1DB27C5183600F54DC5 = {
 			isa = PBXGroup;
 			children = (
@@ -100,7 +78,6 @@
 		415EF1E627C5183600F54DC5 /* AlbumsApp */ = {
 			isa = PBXGroup;
 			children = (
-				4150E54427C6F1F600387D8D /* Search */,
 				4150E53D27C6E45300387D8D /* Extensions */,
 				415EF20627C52B1700F54DC5 /* Resources */,
 				415EF20527C52B0700F54DC5 /* AlbumList */,
@@ -278,20 +255,15 @@
 			files = (
 				415EF20B27C54FBB00F54DC5 /* AlbumDetailView.swift in Sources */,
 				415EF20427C518D200F54DC5 /* Router.swift in Sources */,
-				4150E54A27C6F21300387D8D /* SearchPresenter.swift in Sources */,
 				415EF20027C518BF00F54DC5 /* Presenter.swift in Sources */,
 				415EF21127C54FE000F54DC5 /* AlbumDetailPresenter.swift in Sources */,
 				415EF1FC27C518A900F54DC5 /* View.swift in Sources */,
 				41AFD7B727C68A6B00121BEB /* AlbumDetailInteractor.swift in Sources */,
-				4150E54C27C6F21E00387D8D /* SearchEntity.swift in Sources */,
 				4150E53F27C6E45F00387D8D /* UIViewExtension.swift in Sources */,
-				4150E54E27C6F22B00387D8D /* SearchRoute.swift in Sources */,
 				4150E54327C6E4AE00387D8D /* CustomUILabel.swift in Sources */,
 				415EF20227C518C700F54DC5 /* Entity.swift in Sources */,
 				415EF1FE27C518B500F54DC5 /* Interactor.swift in Sources */,
 				415EF1E827C5183600F54DC5 /* AppDelegate.swift in Sources */,
-				4150E54827C6F20B00387D8D /* SearchInteractor.swift in Sources */,
-				4150E54627C6F20200387D8D /* SearchView.swift in Sources */,
 				415EF1EA27C5183600F54DC5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

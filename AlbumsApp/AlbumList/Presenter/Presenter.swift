@@ -12,17 +12,11 @@ protocol AnyPresenter {
     var router: AlbumRouter? {get set}
     var interactor: AnyInteractor? {get set}
     var view: AnyView? {get set}
-    
     func interactorDidDownloadAlbums(result: Result<[AlbumResult], Error>)
-    func openScreen(album: AlbumResult)
 }
 
 class AlbumPresenter: AnyPresenter {
-    func openScreen(album: AlbumResult) {
-        
-    }
     
-   
     var router: AlbumRouter?
     
     var interactor: AnyInteractor? {

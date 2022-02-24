@@ -22,6 +22,8 @@ class AlbumsViewController: UIViewController, AnyView, UITableViewDelegate, UITa
    
     var presenter: AnyPresenter?
     var albums: [AlbumResult] = []
+    
+    private let refreshControl = UIRefreshControl()
     private let tableView: UITableView = {
        let table = UITableView()
         table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -58,12 +60,16 @@ class AlbumsViewController: UIViewController, AnyView, UITableViewDelegate, UITa
         tableView.dataSource = self
         title = "Albums"
         messageLabel.text = "Downloading..."
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(goSearch))
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to Refresh")
+        refreshControl.addTarget(self, action: #selector(refreshPage), for: .valueChanged)
+        tableView.addSubview(refreshControl)
     }
     
-    @objc func goSearch(){
-        self.navigationController?.pushViewController(SearchViewController(), animated: true)
+    @objc func refreshPage(){
+        self.tableView.reloadData()
+        refreshControl.endRefreshing()
     }
+  
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()

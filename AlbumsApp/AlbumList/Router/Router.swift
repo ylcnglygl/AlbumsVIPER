@@ -21,9 +21,9 @@ class AlbumRouter: AnyRouter {
     var entry: EntryPoint?
     static func startExecution() -> AnyRouter {
         let router = AlbumRouter()
-        var view: AnyView = AlbumsViewController()
-        var presenter: AnyPresenter = AlbumPresenter()
-        var interactor: AnyInteractor = AlbumInteractor()
+        let view = AlbumsViewController()
+        let presenter = AlbumPresenter()
+        let interactor = AlbumInteractor()
         
         view.presenter = presenter
         
@@ -50,11 +50,6 @@ class AlbumRouter: AnyRouter {
         interactor.presenter = presenter
         interactor.gelAlbumFromInteractor(album: album)
         return view
-        
-//        let presenter = AlbumDetailPresenter(interactor: AlbumDetailInteractor(album: album))
-//        let view = AlbumDetailViewController()
-//        view.presenter = presenter
-//        return view
     }
     
     

@@ -8,19 +8,17 @@
 import Foundation
 import UIKit
 
-protocol PresenterWillOpenDetailProtocol {
-    func openScreen(screenName: String, onViewController: UIViewController)
-}
 
-protocol AnyView {
-    var presenter: AnyPresenter? {get set}
+
+protocol AlbumsViewProtocol {
+    var presenter: AlbumsPresenterProtocol? {get set}
     func update(with albums: [AlbumResult])
     func update(with error: String)
 }
 
-class AlbumsViewController: UIViewController, AnyView, UITableViewDelegate, UITableViewDataSource {
+class AlbumsViewController: UIViewController, AlbumsViewProtocol, UITableViewDelegate, UITableViewDataSource {
    
-    var presenter: AnyPresenter?
+    var presenter: AlbumsPresenterProtocol?
     var albums: [AlbumResult] = []
     
     private let refreshControl = UIRefreshControl()

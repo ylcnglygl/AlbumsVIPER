@@ -8,18 +8,18 @@
 import Foundation
 import UIKit
 
-typealias EntryPoint = AnyView & UIViewController
+typealias EntryPoint = AlbumsViewProtocol & UIViewController
 
-protocol AnyRouter {
+protocol AlbumsRouterProtocol {
     var entry: EntryPoint? {get}
-    static func startExecution() -> AnyRouter
+    static func startExecution() -> AlbumsRouterProtocol
     func goDetail(for album: AlbumResult) -> UIViewController
 }
 
-class AlbumRouter: AnyRouter {
+class AlbumRouter: AlbumsRouterProtocol {
    
     var entry: EntryPoint?
-    static func startExecution() -> AnyRouter {
+    static func startExecution() -> AlbumsRouterProtocol {
         let router = AlbumRouter()
         let view = AlbumsViewController()
         let presenter = AlbumPresenter()

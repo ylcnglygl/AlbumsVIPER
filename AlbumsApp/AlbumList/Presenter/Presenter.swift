@@ -8,24 +8,24 @@
 import Foundation
 import UIKit
 
-protocol AnyPresenter {
+protocol AlbumsPresenterProtocol {
     var router: AlbumRouter? {get set}
-    var interactor: AnyInteractor? {get set}
-    var view: AnyView? {get set}
+    var interactor: AlbumsInteractorProtocol? {get set}
+    var view: AlbumsViewProtocol? {get set}
     func interactorDidDownloadAlbums(result: Result<[AlbumResult], Error>)
 }
 
-class AlbumPresenter: AnyPresenter {
+class AlbumPresenter: AlbumsPresenterProtocol {
     
     var router: AlbumRouter?
     
-    var interactor: AnyInteractor? {
+    var interactor: AlbumsInteractorProtocol? {
         didSet {
             interactor?.downloadAlbums()
         }
     }
     
-    var view: AnyView?
+    var view: AlbumsViewProtocol?
     
     func interactorDidDownloadAlbums(result: Result<[AlbumResult], Error>) {
         switch result {

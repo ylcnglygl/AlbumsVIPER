@@ -12,13 +12,13 @@ enum NetworkError: Error {
     case ParsingFailed
 }
 
-protocol AnyInteractor {
-    var presenter: AnyPresenter? {get set}
+protocol AlbumsInteractorProtocol {
+    var presenter: AlbumsPresenterProtocol? {get set}
     func downloadAlbums()
 }
 
-class AlbumInteractor: AnyInteractor {
-    var presenter: AnyPresenter?
+class AlbumInteractor: AlbumsInteractorProtocol {
+    var presenter: AlbumsPresenterProtocol?
     
     func downloadAlbums() {
         
